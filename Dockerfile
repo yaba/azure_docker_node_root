@@ -8,14 +8,5 @@ RUN yarn install && \
 
 COPY . /app/
  
-# Start and enable SSH
-RUN apk add openssh \
-     && echo "root:Docker!" | chpasswd \
-     && chmod +x /app/init_container.sh \
-     && cd /etc/ssh/ \
-     && ssh-keygen -A
-
-COPY sshd_config /etc/ssh/
-
-EXPOSE 8080 22
+EXPOSE 8080
 ENTRYPOINT [ "/app/init_container.sh" ]
