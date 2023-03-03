@@ -17,5 +17,5 @@ RUN apk add openssh \
 
 COPY sshd_config /etc/ssh/
 
-EXPOSE 8080 2222
+EXPOSE 8080 22
 ENTRYPOINT [ "/app/init_container.sh" ]
